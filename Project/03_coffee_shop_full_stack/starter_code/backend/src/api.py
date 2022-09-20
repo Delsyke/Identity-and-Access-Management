@@ -25,28 +25,6 @@ CORS(app)
 '''
 db_drop_and_create_all()
 
-'''
-@app.get('/login-results')
-def login_callback:
-    return render_template('index.html')
-
-
-@app.post('/authorize')
-def authorize():
-    pass
-
-
-@app.get('/logout')
-def logout():
-    return redirect('')
-    pass
-'''
-
-@app.get('/')
-def home():
-    return jsonify({
-        "message": "Hello There"
-        }), 200
 
 # ROUTES
 '''
