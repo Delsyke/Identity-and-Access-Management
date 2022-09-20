@@ -30,17 +30,17 @@ db_drop_and_create_all()
 '''
 
 
-def db_drop_and_create_all():
-    db.drop_all()
-    db.create_all()
-    # add one demo row which is helping in POSTMAN test
-    drink = Drink(
-        title='water',
-        recipe='[{"name": "water", "color": "blue", "parts": 1}]'
-    )
+# def db_drop_and_create_all():
+#     #db.drop_all()
+#     db.create_all()
+#     # add one demo row which is helping in POSTMAN test
+#     drink = Drink(
+#         title='water',
+#         recipe='[{"name": "water", "color": "blue", "parts": 1}]'
+#     )
 
 
-    drink.insert()
+#     drink.insert()
 # ROUTES
 
 '''
@@ -64,7 +64,7 @@ class Drink(db.Model):
     '''
 
     def short(self):
-        print(json.loads(self.recipe))
+        #print(json.loads(self.recipe))
         short_recipe = [{'color': r['color'], 'parts': r['parts']} for r in json.loads(self.recipe)]
         return {
             'id': self.id,
@@ -78,6 +78,7 @@ class Drink(db.Model):
     '''
 
     def long(self):
+        #print(json.loads(self.recipe))
         return {
             'id': self.id,
             'title': self.title,
@@ -126,3 +127,19 @@ class Drink(db.Model):
 
     def __repr__(self):
         return json.dumps(self.short())
+
+
+
+def db_drop_and_create_all():
+    db.drop_all()
+    db.create_all()
+    
+    # add one demo row which is helping in POSTMAN test
+    water = Drink(
+        title='water',
+        recipe='[{"name": "water", "color": "blue", "parts": 1}]'
+    )
+    water.insert()
+
+
+
