@@ -8,10 +8,6 @@ from .database.models import db_drop_and_create_all, setup_db, Drink
 from .auth.auth import AuthError, requires_auth 
 
 
-def serialize(recipe):
-    recipe = recipe.replace("'", '\"')
-    return recipe
-
 
 app = Flask(__name__)
 setup_db(app)
@@ -83,8 +79,7 @@ def get_drinks_detail(jwt):
 @app.post('/drinks')
 @requires_auth(permission='post:drinks')
 def post_drinks(jwt):
-    # try:
-        # request body
+
     body = request.get_json()
     title = body['title']
     recipe = body['recipe']
@@ -96,8 +91,6 @@ def post_drinks(jwt):
         "success" : True,
         "drinks" : drink.long()
         }), 200
-    # except:
-    #     abort(400)
 
 '''
 @TODO implement endpoint
