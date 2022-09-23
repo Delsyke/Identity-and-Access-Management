@@ -181,7 +181,7 @@ def unprocessable(error):
     error handler should conform to general task above
 '''
 @app.errorhandler(404)
-def unprocessable(error):
+def resource_not_found(error):
     return jsonify({
         "success": False,
         "error": 404,
@@ -190,7 +190,7 @@ def unprocessable(error):
 
 
 @app.errorhandler(401)
-def unprocessable(error):
+def not_authenticated(error):
     return jsonify({
         "success": False,
         "error": 401,
@@ -199,7 +199,7 @@ def unprocessable(error):
 
 
 @app.errorhandler(403)
-def unprocessable(error):
+def not_authorised(error):
     return jsonify({
         "success": False,
         "error": 403,
@@ -208,7 +208,7 @@ def unprocessable(error):
 
 
 @app.errorhandler(400)
-def unprocessable(error):
+def bad_request(error):
     return jsonify({
         "success": False,
         "error": 400,
@@ -216,7 +216,7 @@ def unprocessable(error):
     }), 400
 
 @app.errorhandler(405)
-def unprocessable(error):
+def method_not_allowed(error):
     return jsonify({
         "success": False,
         "error": 405,
