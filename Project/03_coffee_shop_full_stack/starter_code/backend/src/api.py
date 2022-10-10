@@ -120,7 +120,7 @@ def patch_drink(jwt, id=id):
             drink.title = new_title
 
         if new_recipe:
-            drink.recipe = serialize(new_recipe)
+            drink.recipe = json.dumps(new_recipe)
 
         drink.update()
         return jsonify({
