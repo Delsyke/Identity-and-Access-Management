@@ -190,25 +190,3 @@ def requires_auth(permission=''):
 
 
 
-
-# def requires_auth(permission=''):
-#     def requires_auth_decorator(f):
-#         @wraps(f)
-#         def wrapper(*args, **kwargs):
-#             token = get_token_auth_header()
-#             # try:
-#             payload = verify_decode_jwt(token)
-#             # except jwt.ExpiredSignatureError:
-#                 # abort(401)
-#             # except jwt.JWTClaimsError:
-#                 # abort(403)
-#             # except:
-#                 # abort(403)
-#             # try:
-#             check_permissions(permission, payload)
-#             # except:
-#                 # abort(403)
-#             return f(payload, *args, **kwargs)
-
-#         return wrapper
-#     return requires_auth_decorator
